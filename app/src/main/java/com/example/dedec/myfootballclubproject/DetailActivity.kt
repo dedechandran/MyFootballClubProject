@@ -15,9 +15,8 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var descClub: TextView
 
     companion object {
-        const val EXTRA_IMAGE = "EXTRA_IMAGE"
-        const val EXTRA_DESC = "EXTRA_DESC"
-        const val EXTRA_NAME = "EXTRA_NAME"
+        const val EXTRA_CLUB = "EXTRA_CLUB"
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,17 +24,16 @@ class DetailActivity : AppCompatActivity() {
         DetailActivityUI().setContentView(this)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val intent = intent
-        val name = intent?.extras?.getString(EXTRA_NAME)
-        val img = intent?.extras?.getInt(EXTRA_IMAGE)
-        val desc = intent?.extras?.getString(EXTRA_DESC)
+        val clubIntent = intent
+        val club = clubIntent?.getParcelableExtra<Club>(EXTRA_CLUB)
+
 
         imgClub = find(R.id.img_club_detail)
         descClub = find(R.id.desc_club)
 
-        supportActionBar?.title = name
-        Glide.with(this).load(img).into(imgClub)
-        descClub.text = desc
+        supportActionBar?.title = club?.name
+        Glide.with(this).load(club?.image).into(imgClub)
+        descClub.text = club?.description
     }
 
     class DetailActivityUI : AnkoComponent<DetailActivity> {

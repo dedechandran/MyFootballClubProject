@@ -20,9 +20,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = ClubAdapter(this, clubItems) {
             startActivity(
                 intentFor<DetailActivity>(
-                    DetailActivity.EXTRA_IMAGE to it.image
-                    , DetailActivity.EXTRA_DESC to it.description
-                    , DetailActivity.EXTRA_NAME to it.name
+                    DetailActivity.EXTRA_CLUB to it
                 )
             )
         }
