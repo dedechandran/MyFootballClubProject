@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="rv_club" type="id"/>
+    <item name="img_club" type="id"/>
+    <item name="name_club" type="id"/>
+    <item name="desc_club" type="id"/>
+    <item name="img_club_detail" type="id"/>
+
+
+</resources>
